@@ -27,7 +27,7 @@ export default async (req: Request) => {
     WHERE
       rn = 1
     ORDER BY
-      latest_supply DESC;
+      latest_supply DESC::numeric;
   `;
 
   const record = await sql(query);
