@@ -7,19 +7,19 @@ export default async (req: Request) => {
   const query = `
     WITH ranked_trades AS (
       SELECT
-        credId,
-        MAX(block_timestamp) AS latest_timestamp,
-        FIRST_VALUE(supply) OVER (PARTITION BY credId ORDER BY block_timestamp DESC) AS latest_supply,
-        ROW_NUMBER() OVER (PARTITION BY credId ORDER BY block_timestamp DESC) AS rn
+        "credId",
+        MAX("block_timestamp") AS latest_timestamp,
+        FIRST_VALUE("supply") OVER (PARTITION BY "credId" ORDER BY "block_timestamp" DESC) AS latest_supply,
+        ROW_NUMBER() OVER (PARTITION BY "credId" ORDER BY "block_timestamp" DESC) AS rn
       FROM
         optimism_sepolia_cred_data
       WHERE
-        event_signature = 'Trade'
+        "event_signature" = 'Trade'
       GROUP BY
-        credId, supply, block_timestamp
+        "credId", "supply", "block_timestamp"
     )
     SELECT
-      credId,
+      "credId",
       latest_timestamp,
       latest_supply
     FROM

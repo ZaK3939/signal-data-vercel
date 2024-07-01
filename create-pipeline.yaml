@@ -1,4 +1,4 @@
-name: optimism-sepolia-cred-events-pipeline
+name: optimism-sepolia-cred-trade-events
 apiVersion: 3
 sources:
   optimism_sepolia_raw_logs:
@@ -41,7 +41,7 @@ transforms:
         transaction_hash
       FROM cred_decoded 
       WHERE decoded IS NOT NULL
-      AND decoded.event_name = 'Trade'
+      AND decoded.event_signature = 'Trade'
 sinks:
   postgres_optimism_sepolia_cred_events:
     type: postgres
