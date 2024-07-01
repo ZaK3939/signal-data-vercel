@@ -1,11 +1,11 @@
-name: optimism-sepolia-cred-data
+name: optimism-sepolia-cred-events-pipeline
 apiVersion: 3
 sources:
   optimism_sepolia_raw_logs:
     dataset_name: optimism_sepolia.raw_logs
     version: 1.0.0
     type: dataset
-    start_at: latest
+    start_at: earliest
 transforms:
   cred_decoded:
     primary_key: id
@@ -17,7 +17,8 @@ transforms:
             `topics`, 
             `data`
         ) AS `decoded`, 
-        block_number, 
+        block_number,
+        block_timestamp,
         transaction_hash 
       FROM optimism_sepolia_raw_logs
       WHERE address = lower('0xba45F4B673b1E7800878FEf7381c6Ce9A0E6B125')
@@ -27,15 +28,24 @@ transforms:
       SELECT 
         `id`, 
         decoded.event_params AS `event_params`, 
+        decoded.event_params[1] AS `trader`, 
+        decoded.event_params[2] AS `credId`, 
+        decoded.event_params[3] AS `isBuy`, 
+        decoded.event_params[4] AS `amount`, 
+        decoded.event_params[5] AS `ethvalue`, 
+        decoded.event_params[6] AS `protocolEthAmount`, 
+        decoded.event_params[7] AS `supply`, 
         decoded.event_signature AS `event_signature`,
         block_number,
+        block_timestamp,
         transaction_hash
       FROM cred_decoded 
       WHERE decoded IS NOT NULL
+      AND decoded.event_name = 'Trade'
 sinks:
   postgres_optimism_sepolia_cred_events:
     type: postgres
-    table: optimism_sepolia_cred_events
+    table: optimism_sepolia_cred_data
     schema: public
     secret_name: JDBC_SECRET_CLXZX7Y380
     description: 'Postgres sink for: Optimism Sepolia Cred contract events'

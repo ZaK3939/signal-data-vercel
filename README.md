@@ -1,6 +1,7 @@
 goldsky login
-goldsky pipeline apply
-goldsky pipeline start xxx
+goldsky pipeline apply create-pipeline.yaml
+goldsky pipeline start optimism-sepolia-cred-events-test
+goldsky pipeline monitor optimism-sepolia-cred-events-test
 
 goldsky から neon に sync する
 https://app.goldsky.com/project_clqequrmv3a5301zk2pzn0az7/data-sources/dataset/raw_logs
