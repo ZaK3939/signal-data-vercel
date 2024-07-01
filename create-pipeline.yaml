@@ -1,0 +1,42 @@
+name: optimism-sepolia-cred-data
+apiVersion: 3
+sources:
+  optimism_sepolia_raw_logs:
+    dataset_name: optimism_sepolia.raw_logs
+    version: 1.0.0
+    type: dataset
+    start_at: latest
+transforms:
+  cred_decoded:
+    primary_key: id
+    sql: >
+      SELECT 
+        `id`,
+        _gs_evm_decode(
+            _gs_fetch_abi('https://api-sepolia-optimism.etherscan.io/api?module=contract&action=getabi&address=0x3AB39ec06F5BDe998602Ae1170875C0A10587523', 'etherscan'), 
+            `topics`, 
+            `data`
+        ) AS `decoded`, 
+        block_number, 
+        transaction_hash 
+      FROM optimism_sepolia_raw_logs
+      WHERE address = lower('0xba45F4B673b1E7800878FEf7381c6Ce9A0E6B125')
+  cred_clean:
+    primary_key: id
+    sql: >
+      SELECT 
+        `id`, 
+        decoded.event_params AS `event_params`, 
+        decoded.event_signature AS `event_signature`,
+        block_number,
+        transaction_hash
+      FROM cred_decoded 
+      WHERE decoded IS NOT NULL
+sinks:
+  postgres_optimism_sepolia_cred_events:
+    type: postgres
+    table: optimism_sepolia_cred_events
+    schema: public
+    secret_name: JDBC_SECRET_CLXZX7Y380
+    description: 'Postgres sink for: Optimism Sepolia Cred contract events'
+    from: cred_clean
