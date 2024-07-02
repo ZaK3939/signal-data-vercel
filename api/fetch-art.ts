@@ -16,7 +16,7 @@ export default async (req: Request) => {
       "artist",
       "chain"
     FROM 
-      optimism_sepolia_cred_data
+      testnet_factory_create_data
     WHERE 
       "credId" = ${credId} AND "credChainId" = ${credChainId}
     GROUP BY
