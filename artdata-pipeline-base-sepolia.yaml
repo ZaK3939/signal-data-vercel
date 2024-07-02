@@ -1,4 +1,4 @@
-name: base-sepolia-factory-create-events
+name: base-sepolia-factory-create-event
 apiVersion: 3
 sources:
   base_sepolia_raw_logs:
