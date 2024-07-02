@@ -18,7 +18,7 @@ export default async (req: Request) => {
     FROM 
       testnet_factory_art_create_data
     WHERE 
-      "credId" = ${credId} AND "credChainId" = ${credChainId}
+      "credId" = ${parseInt(credId!)} AND "credChainId" = ${parseInt(credChainId!)}
     GROUP BY
       "artId", "artAddress", "artist", "chain"
     ORDER BY
