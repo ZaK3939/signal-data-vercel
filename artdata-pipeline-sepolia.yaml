@@ -1,0 +1,52 @@
+name: ethereum-sepolia-factory-create-events
+apiVersion: 3
+sources:
+  ethereum_sepolia_raw_logs:
+    dataset_name: ethereum_sepolia.raw_logs
+    version: 1.0.0
+    type: dataset
+    start_at: earliest
+transforms:
+  factory_decoded:
+    primary_key: id
+    sql: >
+      SELECT 
+        `id`,
+        _gs_evm_decode(
+            _gs_fetch_abi('https://api-sepolia.etherscan.io/api?module=contract&action=getabi&address=0x2d090a33ab56fc0b8a69611a12a79db9b45ac9f0', 'etherscan'), 
+            `topics`, 
+            `data`
+        ) AS `decoded`, 
+        block_number,
+        block_timestamp,
+        transaction_hash 
+      FROM ethereum_sepolia_raw_logs
+      WHERE address = lower('0x608b3c4C489AeF8d5CC371539aD9101AB0bC0f16')
+  factory_clean:
+    primary_key: id
+    sql: >
+      SELECT 
+        `id`, 
+        decoded.event_params AS `event_params`, 
+        decoded.event_params[1] AS `artist`, 
+        decoded.event_params[2] AS `credId`, 
+        decoded.event_params[3] AS `credChainId`, 
+        decoded.event_params[4] AS `artId`, 
+        decoded.event_params[5] AS `artAddress`, 
+        decoded.event_params[6] AS `tokenId`, 
+        decoded.event_signature AS `event_signature`,
+        'sepolia' AS `chain`,
+        block_number,
+        block_timestamp,
+        transaction_hash
+      FROM factory_decoded
+      WHERE decoded IS NOT NULL
+      AND decoded.event_signature = 'NewArtCreated'
+sinks:
+  postgres_ethereum_sepolia_art_create_events:
+    type: postgres
+    table: testnet_factory_art_create_data
+    schema: public
+    secret_name: JDBC_SECRET_CLXZX7Y380
+    description: 'Postgres sink for: Sepolia Factory contract events'
+    from: factory_clean

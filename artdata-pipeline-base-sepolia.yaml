@@ -1,8 +1,8 @@
-name: optimism-sepolia-factory-art-create-events
+name: base-sepolia-factory-create-events
 apiVersion: 3
 sources:
-  optimism_sepolia_raw_logs:
-    dataset_name: optimism_sepolia.raw_logs
+  base_sepolia_raw_logs:
+    dataset_name: base_sepolia.raw_logs
     version: 1.0.0
     type: dataset
     start_at: earliest
@@ -13,15 +13,15 @@ transforms:
       SELECT 
         `id`,
         _gs_evm_decode(
-            _gs_fetch_abi('https://api-sepolia-optimism.etherscan.io/api?module=contract&action=getabi&address=0x2d9181b954736971bb74043d4782dFe93b55a9af', 'etherscan'), 
+            _gs_fetch_abi('https://api-sepolia.basescan.org/api?module=contract&action=getabi&address=0xf6a7abef1a58b3e89ea6b698b5f065d0b59aa822', 'etherscan'), 
             `topics`, 
             `data`
         ) AS `decoded`, 
         block_number,
         block_timestamp,
         transaction_hash 
-      FROM optimism_sepolia_raw_logs
-      WHERE address = lower('0x4E6Ba9980E66DeD2141a6ab724A1FBbbcC0FD309')
+      FROM base_sepolia_raw_logs
+      WHERE address = lower('0x64Ac48c50C677d9df05Fc58BE3dE52eEF7714C41')
   factory_clean:
     primary_key: id
     sql: >
@@ -35,17 +35,18 @@ transforms:
         decoded.event_params[5] AS `artAddress`, 
         decoded.event_params[6] AS `tokenId`, 
         decoded.event_signature AS `event_signature`,
+        'base-sepolia' AS `chain`,
         block_number,
         block_timestamp,
         transaction_hash
-      FROM factory_decoded 
+      FROM factory_decoded
       WHERE decoded IS NOT NULL
       AND decoded.event_signature = 'NewArtCreated'
 sinks:
-  postgres_optimism_sepolia_art_create_events:
+  postgres_base_sepolia_art_create_events:
     type: postgres
-    table: optimism_sepolia_art_data
+    table: testnet_factory_art_create_data
     schema: public
     secret_name: JDBC_SECRET_CLXZX7Y380
-    description: 'Postgres sink for: Optimism Sepolia Factory contract events'
+    description: 'Postgres sink for: base Sepolia Factory contract events'
     from: factory_clean
