@@ -14,11 +14,14 @@ export default async (req: Request) => {
       "artId",
       "artAddress",
       "artist",
-      "chain"
+      "chain",
+      "block_timestamp"
     FROM 
       testnet_factory_art_create_data
+    WHERE 
+     "credId"::text = '${credId}' AND "credChainId"::text = '${credChainId}'
     GROUP BY
-      "artId", "artAddress", "artist", "chain"
+      "artId", "artAddress", "artist", "chain","block_timestamp"
     ORDER BY
       "block_timestamp" DESC;
   `;
