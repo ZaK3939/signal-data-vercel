@@ -1,10 +1,9 @@
 #!/bin/bash
 
+## please not use proxy contract
 # Array of URLs to retrieve ABI files from
 urls=(
   "https://api-sepolia.basescan.org/api?module=contract&action=getabi&address=0xE5aDec624bD19973B5418237201C58351448A15a"
-#   "https://api-sepolia-optimism.etherscan.io/api?module=contract&action=getabi&address=0x00c9b13ac9cf7a2665890bf147d3ac932af9fc96"
-#   "https://api-sepolia.etherscan.io/api?module=contract&action=getabi&address=0x2d090a33ab56fc0b8a69611a12a79db9b45ac9f0"
 )
 
 # Output directory for saving ABI files

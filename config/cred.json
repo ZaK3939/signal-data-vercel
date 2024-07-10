@@ -1,0 +1,29 @@
+{
+  "name": "cred/1.0.0",
+  "version": "1",
+  "abis": {
+    "cred": {
+      "path": "../abis/cred.json"
+    }
+  },
+  "instances": [
+    {
+      "abi": "cred",
+      "address": "0x997F120c1dd889f6E73F09cD7712e014d32Db620",
+      "startBlock": 6284646,
+      "chain": "sepolia"
+    },
+    {
+      "abi": "cred",
+      "address": "0x8FF5d8309BC48487cF8489a3145fa3a2e2cB1074",
+      "startBlock": 14416094,
+      "chain": "optimism-sepolia"
+    },
+    {
+      "abi": "cred",
+      "address": "0x624A242D4C7215573418745B0dE6f4b6b1C6beFF",
+      "startBlock": 12433219,
+      "chain": "base-sepolia"
+    },
+  ]
+}

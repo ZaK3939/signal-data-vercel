@@ -32,10 +32,21 @@ get_current_block() {
   esac
 }
 
-# Create the config folder if it doesn't exist
-mkdir -p config
 
-# Iterate over each chain and generate the JSON configuration file
+# Generate the JSON configuration file
+cat > "config/cred.json" <<EOL
+{
+  "name": "cred/1.0.0",
+  "version": "1",
+  "abis": {
+    "cred": {
+      "path": "../abis/cred.json"
+    }
+  },
+  "instances": [
+EOL
+
+# Iterate over each chain and add the instance to the configuration file
 for chain_info in "${chains[@]}"
 do
   IFS=':' read -ra chain_parts <<< "$chain_info"
@@ -48,28 +59,25 @@ do
   # Get the current block number for the chain
   start_block=$(get_current_block "$chain")
   
-  # Generate the JSON configuration file
-  cat > "config/${chain}_cred_config.json" <<EOL
-{
-  "name": "cred-${chain}/1.0.0",
-  "version": "1",
-  "abis": {
-    "base-cred": {
-      "path": "../abis/cred.json"
-    }
-  },
-  "instances": [
+  # Add the instance to the configuration file
+  cat >> "config/cred.json" <<EOL
     {
-      "abi": "base-cred",
+      "abi": "cred",
       "address": "$address",
       "startBlock": $start_block,
       "chain": "$chain"
-    }
-  ]
-}
+    },
 EOL
-
-  echo "Generated configuration file: config/${chain}_cred_config.json"
-   # Deploy the subgraph using the configuration file
-  goldsky subgraph deploy "${chain}_cred_config/1.0.0" --from-abi "./config/${chain}_cred_config.json"
 done
+
+# Remove the trailing comma from the last instance
+sed -i '' -e '$s/,$//' "config/cred.json"
+
+# Close the instances array and the configuration file
+echo '  ]' >> "config/cred.json"
+echo '}' >> "config/cred.json"
+
+echo "Generated configuration file: config/cred.json"
+
+# Deploy the subgraph using the configuration file
+goldsky subgraph deploy "cred/1.0.0" --from-abi "./config/cred.json"
