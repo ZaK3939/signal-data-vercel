@@ -5,7 +5,7 @@ export default async (req: Request) => {
 
   const url = new URL(req.url);
   const address = url.searchParams.get('address');
-
+  console.log(address);
   const query = `
     SELECT
       "cred_id",
