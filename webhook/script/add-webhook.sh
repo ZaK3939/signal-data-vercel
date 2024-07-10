@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the URL for the webhook
-WEBHOOK_URL="https://signal-data-vercel.vercel.app/api/post"
+WEBHOOK_URL="https://signal-data-vercel.vercel.app/api/verify"
 
 # Array of chain names and corresponding environment variables for addresses
 chains=(

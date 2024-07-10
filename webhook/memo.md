@@ -2,8 +2,19 @@ goldsky command
 goldsky subgraph deploy "test-base-f-cred/1.0.0" --from-abi <config-path>
 goldsky subgraph delete xxx
 
-etherscan から abi を引っ張る
-goldsky を kick する script
+- download abi from etherscan
+
+  - prepare-abi.sh
+
+- goldsky subgraph deploy
+
+  - make-config.sh
+
+- add webhook
+  - add-webhook.sh
 
 webhook->neondb
+
+- verifier.ts
+
 neondb -> response

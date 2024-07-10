@@ -1,7 +1,8 @@
 #!/bin/bash
 
+# Set the Addrss for retrieve ABI files from scan
 ## please not use proxy contract
-# Array of URLs to retrieve ABI files from
+
 urls=(
   "https://api-sepolia.basescan.org/api?module=contract&action=getabi&address=0xE5aDec624bD19973B5418237201C58351448A15a"
 )
