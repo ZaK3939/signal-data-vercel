@@ -36,6 +36,7 @@ transforms:
         CAST(decoded.event_params[6] AS NUMERIC) AS `protocolEthAmount`, 
         CAST(decoded.event_params[7] AS NUMERIC) AS `supply`, 
         decoded.event_signature AS `event_signature`,
+        'optimism-sepolia' AS `chain`,
         block_number,
         block_timestamp,
         transaction_hash

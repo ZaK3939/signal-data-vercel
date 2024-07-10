@@ -1,0 +1,17 @@
+{
+  "name": "cred-optimism-sepolia/1.0.0",
+  "version": "1",
+  "abis": {
+    "base-cred": {
+      "path": "../abis/cred.json"
+    }
+  },
+  "instances": [
+    {
+      "abi": "base-cred",
+      "address": "0x8FF5d8309BC48487cF8489a3145fa3a2e2cB1074",
+      "startBlock": 14412960,
+      "chain": "optimism-sepolia"
+    }
+  ]
+}

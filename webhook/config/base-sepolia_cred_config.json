@@ -1,0 +1,17 @@
+{
+  "name": "cred-base-sepolia/1.0.0",
+  "version": "1",
+  "abis": {
+    "base-cred": {
+      "path": "../abis/cred.json"
+    }
+  },
+  "instances": [
+    {
+      "abi": "base-cred",
+      "address": "0x624A242D4C7215573418745B0dE6f4b6b1C6beFF",
+      "startBlock": 12430096,
+      "chain": "base-sepolia"
+    }
+  ]
+}
