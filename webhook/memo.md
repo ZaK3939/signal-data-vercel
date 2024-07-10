@@ -13,7 +13,15 @@ goldsky subgraph delete xxx
 - add webhook
   - add-webhook.sh
 
-webhook->neondb
+creating DB ( cred_verifiers ) by neon sql editor
+
+- pls copy and paste create_table.sql
+
+- bun install -g neonctl
+- neon auth
+- neon databases create --name cred_verifiers --owner-name prd_owner
+
+  webhook->neondb
 
 - verifier.ts
 
