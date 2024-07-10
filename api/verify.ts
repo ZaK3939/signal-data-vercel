@@ -5,7 +5,7 @@ export default async (req: Request) => {
 
   if (req.method === 'POST') {
     const data = await req.json();
-
+    console.log(data);
     if (
       data.op === 'INSERT' &&
       (data.data_source === 'cred-base-sepolia/1.0.0' ||
@@ -18,7 +18,7 @@ export default async (req: Request) => {
       try {
         const response = await fetch(newData.cred_url);
         const credData = await response.json();
-
+        console.log(credData);
         if (credData.verification.type === 'SIGNATURE') {
           const verifierListResponse = await fetch(credData.verification.verifier_list);
           const verifierList = await verifierListResponse.json();
