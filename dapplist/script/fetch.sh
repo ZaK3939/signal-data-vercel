@@ -22,7 +22,7 @@ while true; do
     total=$(echo "$response" | jq -r '.response.total')
     list=$(echo "$response" | jq -r '.response.list')
 
-    formatted_projects=$(echo "$list" | jq -r '.[] | {name: .name, description: .description, avatar: .avatar, url: "https://thedapplist.com/project/\(.permalink)", timestamp: .timestamp, chains: [.chains[].name], categories: [.categories[].name]}')
+    formatted_projects=$(echo "$list" | jq -r '.[] | {name: .name, description: .description, avatar: .avatar, url: "https://thedapplist.com/project/\(.permalink)", timestamp: .timestamp, chains: [.chains[].name], categories: [.categories[].name], twitterHandle: .twitterHandle, website: .url}')
     projects+=("$formatted_projects")
 
     offset=$((offset + $(echo "$list" | jq -r 'length')))

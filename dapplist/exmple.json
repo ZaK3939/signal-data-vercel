@@ -1,0 +1,171 @@
+{
+  "status": "success",
+  "response": {
+    "list": [
+      {
+        "_id": "6321c60b6af770e49421e07b",
+        "proposalId": "Qma5FPAmL5RcvTAEAXq8Fa5Kbd91zg1yrvCM9ULYUANopF",
+        "permalink": "serum",
+        "userAddress": "0x6E7cD47780be7F56E05f1BC971ff904f7A4a861E",
+        "version": "1.0.0",
+        "timestamp": 1646505655,
+        "tokenAddress": "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "blockNumber": 0,
+        "signature": "0x0c172833bdd721740577a50f14bb213fd94e04a0d5b2dced249f8bf6effcb61906984f7a80da5cd3f233871ac1a7ef79ba7750daf6588c01ad1a7fc10ce2d27c1c",
+        "name": "Serum",
+        "description": "Serum is a protocol and ecosystem that brings unprecedented speed and low transaction costs to decentralized finance. It is built on Solana and is completely permissionless. Ecosystem partners can compose with Serum’s on-chain central limit orderbook to share liquidity and power markets-based features for institutional and retail users.",
+        "proposalType": "list",
+        "url": "https://portal.projectserum.com/",
+        "categories": [
+          {
+            "_id": "628f3459e39edb261f7433f1",
+            "name": "defi",
+            "label": "DeFi",
+            "image": "https://images.thedapplist.com/dev/uploads/categories/de-fi.png",
+            "id": "628f3459e39edb261f7433f1"
+          }
+        ],
+        "chains": [
+          {
+            "_id": "6294a979d23ca48b0a28963e",
+            "name": "ethereum",
+            "label": "Ethereum",
+            "chainId": 1,
+            "image": "https://images.thedapplist.com/dev/uploads/icons/blockchains/ethereum.svg",
+            "imageIcon": "https://images.thedapplist.com/dev/uploads/icons/blockchains/ethereum.svg",
+            "id": "6294a979d23ca48b0a28963e"
+          }
+        ],
+        "blogLinks": ["62e13b5c5cf8cd78796873e4", "62e13b5c5cf8cd78796873e5"],
+        "stage": "Mainnet",
+        "avatar": "https://images.thedapplist.com/dev/uploads/proposals/avatar_serum.jpeg",
+        "images": [],
+        "contractAddress": ["0x476c5E26a75bd202a9683ffD34359C0CC15be0fF\n0x1320c8c64b9f2eAa851F70702e6C9FC1EE4E8Ce4"],
+        "startTime": 1646611200,
+        "proposalStatus": "LISTED",
+        "networkType": "mainnet",
+        "xpForProposing": 10,
+        "xpForVoting": 2,
+        "votes": [
+          "6321c6716af770e49421e35d",
+          "6321c6716af770e49421e8aa",
+          "6321c6716af770e49421e9b9",
+          "6321c6716af770e49421eacd",
+          "65a30442115d5dd82abdb21c",
+          "65b46b75cf3683e4a5239529",
+          "65d8e988902fe9990e57368c",
+          "661fb0d9fcae370cfc861016",
+          "661ff4f7d07e24308d4e4b88",
+          "662101eef911e8349cf58492",
+          "6621715bb7545471f4b717c8",
+          "6623dc2d8dabf1d8081a2913",
+          "6624aec413b01b1b3fb96a9c",
+          "6624f629d6746aabd79611c1",
+          "662ac664c1a6e2435f6b726c",
+          "663b4c4cc01bc709571f4adc",
+          "663f6e12c01bc709573263bc"
+        ],
+        "likes": [
+          {
+            "_id": "64f5f1b3220661ef078f365e",
+            "user": "64e3c3852c2615b630a5600d"
+          }
+        ],
+        "user": {
+          "_id": "6321c59e6af770e49421dff1",
+          "userAddress": "0x6E7cD47780be7F56E05f1BC971ff904f7A4a861E",
+          "showENS": false,
+          "favourites": [],
+          "tokens": [],
+          "completedQuests": [],
+          "attendanceCount": 0,
+          "joinDate": 1663157662,
+          "createdAt": "2022-09-14T12:14:22.903Z",
+          "updatedAt": "2024-04-04T13:00:26.514Z",
+          "__v": 0,
+          "leaderboard": "6321c6746af770e49421ed9d",
+          "alias": "Apeksha",
+          "profilePic": "https://images.thedapplist.com/prod/uploads/user-media/image_1666087965654.jpeg",
+          "socialLinks": {
+            "twitterHandle": "0xApeksha",
+            "twitterId": "1483003405366927363",
+            "instagramUsername": null,
+            "website": null,
+            "githubUsername": null,
+            "githubId": null,
+            "farcaster": null,
+            "lens": null,
+            "mirror": null,
+            "_id": "651dc06140da778e22d5afe7"
+          },
+          "questFlags": {
+            "connectPopup": true,
+            "connectMessage": true,
+            "profilePopup": true,
+            "profileMessage": true
+          },
+          "completion": 100.00000000000001,
+          "emailVerified": true,
+          "tweetVerified": true,
+          "fullName": "Apeksha Thorat",
+          "codeVerifier": "lK.ZWpIGTqYJrHHhjYBDdoYZ0G-5QXSq5XUIhg8gQeDZJMhi71FBKpsSDdxuoGK7W9Lp2KcPn6PqVllPesGVO-UsdB_XVnIe3K.J~dfDh6fHlDvYj_r4_RqoJ3igK~A.",
+          "stateCode": "rTM4t.mIQpLxYEDbg9R5CVfkijHEPiHq",
+          "showUD": false,
+          "ecosystemPlan": "660ba2d8856c8861c9aafcf7",
+          "xpDropClaimed": false,
+          "xpDropCompleted": false,
+          "id": "6321c59e6af770e49421dff1"
+        },
+        "numberOfVotes": 17,
+        "numberOfLikes": 1,
+        "numberOfVisits": 53,
+        "relayerIpfsHash": "QmWLuDKPKMwdtbYHWf7sb3AGYEiDJYRpTatZAYJLN7gMBg",
+        "updateProposalId": null,
+        "userBalance": 100,
+        "references": [],
+        "genesisDate": null,
+        "auditedBy": null,
+        "auditReportLink": null,
+        "trendingIndex": 0,
+        "history": [],
+        "updatedByAdmin": [],
+        "chainId": 1,
+        "__v": 0,
+        "createdAt": "2022-09-14T12:16:12.202Z",
+        "updatedAt": "2024-06-27T07:09:34.085Z",
+        "colorDark": "#2cbbd4",
+        "colorLight": "#d1faff",
+        "meta": {
+          "title": "Serum - About project, Curators & More | Explore Web3",
+          "description": "Serum is a permissionless, Solana protocol that aspires to bring exceptional speed and lower transactional cost to decentralized finance.",
+          "image": "https://images.thedapplist.com/prod/uploads/project-meta/image_Qma5FPAmL5RcvTAEAXq8Fa5Kbd91zg1yrvCM9ULYUANopF.png",
+          "_id": "632f574e04948163102bead1",
+          "id": "632f574e04948163102bead1"
+        },
+        "socialLinks": {
+          "twitterHandle": "ProjectSerum",
+          "twitterId": null,
+          "website": null,
+          "linkedIn": null,
+          "discord": null,
+          "instagram": null,
+          "telegram": null,
+          "facebook": null,
+          "github": null,
+          "medium": null,
+          "youtube": null,
+          "reddit": null,
+          "substack": null,
+          "_id": "62c9a459b8ae27476cdc5260"
+        },
+        "twitterHandle": "ProjectSerum",
+        "twitterId": "1286548095027703808",
+        "team": [],
+        "listedOn": 1647215999,
+        "id": "6321c60b6af770e49421e07b"
+      }
+    ],
+    "total": 1181
+  },
+  "message": null
+}
