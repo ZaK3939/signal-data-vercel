@@ -8,10 +8,10 @@ goldsky subgraph delete xxx
 
 - goldsky subgraph deploy
 
-  - make-config.sh
+  - make-config-cred.sh
 
 - add webhook
-  - add-webhook.sh
+  - add-webhook-cred.sh
 
 creating DB ( cred_verifiers ) by neon sql editor
 

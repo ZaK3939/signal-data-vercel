@@ -1,0 +1,29 @@
+{
+  "name": "factory/1.0.0",
+  "version": "1",
+  "abis": {
+    "factory": {
+      "path": "../abis/factory.json"
+    }
+  },
+  "instances": [
+    {
+      "abi": "factory",
+      "address": "0xa52b9555afe63bfBa09291Cd0a0F36B6bBd69e04",
+      "startBlock": 6292118,
+      "chain": "sepolia"
+    },
+    {
+      "abi": "factory",
+      "address": "0xC288fc507F1b21aCEC344662BfDF8A42bC5b81D5",
+      "startBlock": 14465115,
+      "chain": "optimism-sepolia"
+    },
+    {
+      "abi": "factory",
+      "address": "0x0139CA09B21Bb12ec83556c375e86DDff37592E1",
+      "startBlock": 12482242,
+      "chain": "base-sepolia"
+    }
+  ]
+}
